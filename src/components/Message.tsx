@@ -7,7 +7,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 const Message: FunctionComponent<Props> = (props) => {
-    const [state, setState] = useState('Welcome Visitor');
+    let [state, setState] = useState('Welcome Visitor');
 
     const clickHandler = () => {
         setState('Thank you for subscribe');
