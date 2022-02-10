@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import FunctionClick from "./components/FunctionClick";
+import EventBind from "./components/EventBind";
 
 function App() {
     return (
         <div className="App">
-            <FunctionClick></FunctionClick>
+            <EventBind></EventBind>
         </div>
     );
 }
