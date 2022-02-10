@@ -5,45 +5,48 @@ interface OwnProps {
 
 type Props = OwnProps;
 
+type StateType = {
+    name: string;
+    comments: string;
+    topic: string;
+}
+
 const Form: FunctionComponent<Props> = (props) => {
 
-    let [userName, setUserName] = useState('');
-    let [comments, setComments] = useState('');
-    const [topic, setTopic] = useState('React');
+    const [state, setState] = useState<StateType>({
+        name: '',
+        comments: '',
+        topic: 'React'
+    });
 
-    const handleUserNameChange = (e: React.ChangeEvent): void => {
-        const {value} = e.target as HTMLInputElement;
-        setUserName(value);
-    }
+    const {name, comments, topic} = state;
 
-    const handleCommentsChange = (e: React.ChangeEvent): void => {
-        const {value} = e.target as HTMLTextAreaElement;
-        setComments(value);
-    }
-
-    const handleTopicChange = (e: React.ChangeEvent): void => {
-        const {value} = e.target as HTMLSelectElement;
-        setTopic(value);
+    const changeHandler = (e: React.ChangeEvent): void => {
+        const {name, value} = e.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+        setState({
+            ...state,
+            [name] : value
+        })
     }
 
     const handleSubmit = (e: React.FormEvent):void => {
         e.preventDefault();
-        console.log(`${userName} ${comments} ${topic}`);
+        console.log(`${name} ${comments} ${topic}`);
     }
 
     return (
         <form action="" onSubmit={e => handleSubmit(e)}>
             <div>
                 <label htmlFor="">Username</label>
-                <input type="text" value={userName} onChange={(e) => handleUserNameChange(e)}/>
+                <input type="text" name="name" value={name} onChange={changeHandler}/>
             </div>
             <div>
                 <label htmlFor="">Comments</label>
-                <textarea name="" id="" cols={30} rows={10} value={comments} onChange={(e)=>handleCommentsChange(e)}></textarea>
+                <textarea name="comments" id="" cols={30} rows={10} value={comments} onChange={changeHandler}></textarea>
             </div>
             <div>
                 <label htmlFor="">Topic</label>
-                <select name="" id="" value={topic} onChange={e => handleTopicChange(e)}>
+                <select name="topic" id="" value={topic} onChange={changeHandler}>
                     <option value="React">React</option>
                     <option value="Angular">Angular</option>
                     <option value="Vue">Vue</option>
