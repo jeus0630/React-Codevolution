@@ -1,4 +1,4 @@
-import React, {FunctionComponent,useState} from 'react';
+import React, {FunctionComponent,useState,useEffect} from 'react';
 
 interface OwnProps {
 }
@@ -11,7 +11,6 @@ const Counter: FunctionComponent<Props> = (props) => {
 
     const increment = () => {
         setCount((prevState)=>{
-            console.log(prevState);
             count = prevState + 1;
             return count;
         });
