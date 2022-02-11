@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import Inline from "./components/Inline";
-import Stylesheet from "./components/Stylesheet";
-import Form from "./components/Form";
+import FragmentDemo from "./components/FragmentDemo";
 
 function App() {
     return (
         <div className="App">
-            <Form></Form>
+            <FragmentDemo></FragmentDemo>
         </div>
     );
 }
