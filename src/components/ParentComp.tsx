@@ -28,6 +28,7 @@ const ParentComp: FunctionComponent<Props> = (props) => {
 
     return (
         <div>
+            {name}
             <MemoComp></MemoComp>
         </div>
     );
