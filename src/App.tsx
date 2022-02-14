@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import PortalDemo from "./components/PortalDemo";
-import Hero from "./components/Hero";
+import {useState} from "react";
+import CounterEx from "./components/CounterEx";
 
 function App() {
+    const [count, setCount] = useState(0);
+
     return (
         <div className="App">
-            <Hero heroName={"batman"}></Hero>
-            <Hero heroName={"joker"}></Hero>
+            <CounterEx count={count} setCount={setCount}></CounterEx>
         </div>
     );
 }
