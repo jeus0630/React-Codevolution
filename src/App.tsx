@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import PortalDemo from "./components/PortalDemo";
+import Hero from "./components/Hero";
 
 function App() {
     return (
         <div className="App">
-            <PortalDemo></PortalDemo>
+            <Hero heroName={"batman"}></Hero>
+            <Hero heroName={"joker"}></Hero>
         </div>
     );
 }
