@@ -31,7 +31,7 @@ const GetList: FunctionComponent<Props> = (props) => {
     return (
         <div>
           {
-            list.length && list.map(list => <h1>{list.title}</h1>)
+            list.length && list.map(list => (<h1>{list.title}</h1>))
           }
         </div>
     );
